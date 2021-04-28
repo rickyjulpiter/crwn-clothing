@@ -3,7 +3,6 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
         (cartItem) => cartItem.id === cartItemToAdd.id
     );
 
-    //jika sudah ada dalam cart, maka ditambahkan dengan cara berulang kali
     if (existingCartItem) {
         return cartItems.map((cartItem) =>
             cartItem.id === cartItemToAdd.id
@@ -12,5 +11,5 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
         );
     }
 
-    return [...cartItems, { cartItemToAdd, quantity: 1 }];
+    return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 };
